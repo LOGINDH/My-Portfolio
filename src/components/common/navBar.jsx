@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./styles/navBar.css";
+import "./style/navBar.css";
 
 const NavBar = (props) => {
 	const { active } = props;

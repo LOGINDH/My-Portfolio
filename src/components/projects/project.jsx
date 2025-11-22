@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 
-import "./styles/project.css";
+import "./style/project.css";
 
 const Project = (props) => {
 	const { logo, title, description, linkText, link } = props;

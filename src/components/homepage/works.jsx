@@ -3,7 +3,7 @@ import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "../common/card";
 
-import "./styles/works.css";
+import "./style/works.css";
 
 const Works = () => {
 	return (
