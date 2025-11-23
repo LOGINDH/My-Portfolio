@@ -45,10 +45,12 @@
 	overflow: hidden;
 	border-radius: 10%;
 	transform: rotate(3deg);
+	transition: width 0.3s ease-in-out;
 }
 
 .homepage-image-wrapper img {
 	width: 100%;
+	transition: width 0.3s ease-in-out;
 }
 
 .homepage-socials {

@@ -8,11 +8,24 @@ import "./style/article.css";
 const Article = (props) => {
 	const { date, title, description, link } = props;
 
+	// Format date: if `date` is an ISO string parse and format it,
+	// otherwise fall back to the provided string.
+	const formattedDate = (() => {
+		if (!date) return "";
+		const parsed = new Date(date);
+		if (isNaN(parsed)) return date;
+		return parsed.toLocaleDateString("en-GB", {
+			day: "numeric",
+			month: "short",
+			year: "numeric",
+		});
+	})();
+
 	return (
 		<React.Fragment>
 			<div className="article">
 				<div className="article-left-side">
-					<div className="article-date">{date}</div>
+					<div className="article-date">{formattedDate}</div>
 				</div>
 
 				<Link to={link}>
