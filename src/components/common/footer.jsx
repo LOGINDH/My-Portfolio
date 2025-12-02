@@ -28,6 +28,14 @@ const Footer = () => {
 				</div>
 
 				<div className="footer-credits">
+					<div className="footer-find-me">
+						<h3>Find me on</h3>
+						<ul>
+							<li><a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a></li>
+							<li><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a></li>
+							<li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
+						</ul>
+					</div>
 					<div className="footer-credits-text">
 						© 2025 LOGINDH. All Rights Reserved.
 					</div>

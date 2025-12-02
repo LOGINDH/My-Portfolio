@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
-import Logo from "../components/common/logo";
-import AllProjects from "../components/projects/allProjects";
+import { motion } from "framer-motion";
+import Sidebar from "../components/common/sidebar";
+import InfiniteMenu from "../components/projects/infiniteMenu";
+
+import FloatingShapes from "../components/common/floatingShapes";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
@@ -18,10 +19,18 @@ const Projects = () => {
 
 	const currentSEO = SEO.find((item) => item.page === "projects");
 
+	// Map projects to InfiniteMenu format
+	const projectItems = React.useMemo(() => INFO.projects.map(project => ({
+		image: project.logo,
+		link: project.link,
+		title: project.title,
+		description: project.description
+	})), []);
+
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Projects | ${INFO.main.title}`}</title>
+				<title>{`Work | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -29,40 +38,52 @@ const Projects = () => {
 				/>
 			</Helmet>
 
-			<div className="page-content">
-				<NavBar active="projects" />
-				<div className="content-wrapper">
-					<div className="projects-logo-container">
-						<div className="projects-logo">
-							<Logo width={46} />
-						</div>
-					</div>
-					<div className="projects-container">
-						<div className="title projects-title">
-							Things I’ve made trying to put my dent in the
-							universe.
+			<div className="page-content projects-page-container">
+				<FloatingShapes />
+				<div className="content-wrapper" style={{ position: 'relative', zIndex: 1 }}>
+					<Sidebar active="projects" />
+
+					<motion.div
+						className="projects-main-content"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 0.8 }}
+					>
+						<div className="projects-top-section">
+							<motion.h1
+								className="projects-brand"
+								initial={{ y: -50, opacity: 0, scale: 0.8 }}
+								animate={{ y: 0, opacity: 1, scale: 1 }}
+								transition={{ delay: 0.2, type: "spring", stiffness: 120, damping: 10 }}
+							>
+								Work
+							</motion.h1>
+							<div className="projects-top-spacer"></div>
 						</div>
 
-						<div className="subtitle projects-subtitle">
-							I've worked on a variety of projects over the years
-							and I'm proud of the progress I've made. Many of
-							these projects are open-source and available for
-							others to explore and contribute to. If you're
-							interested in any of the projects I've worked on,
-							please feel free to check out the code and suggest
-							any improvements or enhancements you might have in
-							mind. Collaborating with others is a great way to
-							learn and grow, and I'm always open to new ideas and
-							feedback.
-						</div>
+						<div className="projects-container">
+							<motion.div
+								className="title projects-title"
+								initial={{ y: 30, opacity: 0, filter: "blur(10px)" }}
+								animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+								transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+							>
+								Things I’ve made trying to put my dent in the
+								universe.
+							</motion.div>
 
-						<div className="projects-list">
-							<AllProjects />
+
+							<motion.div
+								className="projects-list"
+								initial={{ opacity: 0, scale: 0.95 }}
+								animate={{ opacity: 1, scale: 1 }}
+								transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+								style={{ height: '600px' }} // Ensure height for canvas
+							>
+								<InfiniteMenu items={projectItems} />
+							</motion.div>
 						</div>
-					</div>
-					<div className="page-footer">
-						<Footer />
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</React.Fragment>

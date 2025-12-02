@@ -95,3 +95,30 @@
 		padding: 15px 15px;
 	}
 }
+
+.notfound-layout {
+	display: flex;
+	min-height: 100vh;
+}
+
+.notfound-main-content {
+	flex: 1;
+	padding-left: 40px;
+}
+
+@media (min-width: 1024px) {
+	.notfound-main-content {
+		margin-left: 250px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.notfound-main-content {
+		padding-left: 0;
+		padding-top: 60px;
+	}
+
+	.notfound-layout {
+		flex-direction: column;
+	}
+}

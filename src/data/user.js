@@ -1,7 +1,7 @@
 const INFO = {
 	main: {
 		title: "Reactfolio by LOGINDH",
-		name: "LOGINDH V",
+		name: "LOGINDH",
 		email: "logindhlogindh2@gmail.com",
 		logo: "../logo.png",
 	},
@@ -22,7 +22,14 @@ const INFO = {
 	about: {
 		title: "I’m LOGINDH V. I live in ERODE, where I design the future.",
 		description:
-			"",
+			"I am a professional web developer with a passion for creating beautiful and functional user experiences.",
+		details: {
+			name: "Logindh",
+			dob: "Feb 22, 2007",
+			address: "Erode",
+			phone: "6379292931",
+			email: "logindhlogindh2@gmail.com",
+		}
 	},
 
 	articles: {
@@ -36,7 +43,7 @@ const INFO = {
 			title: "Project 1",
 			description:
 				"A lightweight task-management to-do list created with pure JavaScript",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "project1_innovative.png",
 			linkText: "View Project",
 			link: "https://logindh.github.io/TODO-LIST/",
 		},
@@ -45,11 +52,11 @@ const INFO = {
 			title: "Project 2",
 			description:
 				"An interactive number-guessing game built with JavaScript to test your luck and logic",
-			logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+			logo: "project2_innovative.png",
 			linkText: "View Project",
 			link: "https://logindh.github.io/GAME/",
 		},
-			
+
 	],
 };
 

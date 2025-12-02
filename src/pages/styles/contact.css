@@ -36,3 +36,30 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+
+.contact-layout {
+	display: flex;
+	min-height: 100vh;
+}
+
+.contact-main-content {
+	flex: 1;
+	padding-left: 40px;
+}
+
+@media (min-width: 1024px) {
+	.contact-main-content {
+		margin-left: 250px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.contact-main-content {
+		padding-left: 0;
+		padding-top: 60px;
+	}
+
+	.contact-layout {
+		flex-direction: column;
+	}
+}

@@ -66,3 +66,30 @@
 	font-family: system-ui;
 	color: #52525b;
 }
+
+.read-article-layout {
+	display: flex;
+	min-height: 100vh;
+}
+
+.read-article-main-content {
+	flex: 1;
+	padding-left: 40px;
+}
+
+@media (min-width: 1024px) {
+	.read-article-main-content {
+		margin-left: 250px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.read-article-main-content {
+		padding-left: 0;
+		padding-top: 60px;
+	}
+
+	.read-article-layout {
+		flex-direction: column;
+	}
+}

@@ -50,3 +50,30 @@
 		width: 100% !important;
 	}
 }
+
+.articles-layout {
+	display: flex;
+	min-height: 100vh;
+}
+
+.articles-main-content {
+	flex: 1;
+	padding-left: 40px;
+}
+
+@media (min-width: 1024px) {
+	.articles-main-content {
+		margin-left: 250px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.articles-main-content {
+		padding-left: 0;
+		padding-top: 60px;
+	}
+
+	.articles-layout {
+		flex-direction: column;
+	}
+}

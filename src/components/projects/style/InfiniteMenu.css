@@ -1,0 +1,117 @@
+/* Note: this CSS is only an example, you can overlay whatever you want using the activeItem logic */
+
+#infinite-grid-menu-canvas {
+    cursor: grab;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    outline: none;
+}
+
+#infinite-grid-menu-canvas:active {
+    cursor: grabbing;
+}
+
+.action-button {
+    position: absolute;
+    left: 50%;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    background: #5227ff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 5px solid #000;
+}
+
+.action-button-icon {
+    user-select: none;
+    position: relative;
+    color: #fff;
+    top: 2px;
+    font-size: 26px;
+}
+
+.face-title {
+    user-select: none;
+    position: absolute;
+    font-weight: 900;
+    font-size: 3rem;
+    left: 1.6em;
+    top: 50%;
+    color: #000;
+    transform: translate(20%, -50%);
+}
+
+.face-title.active {
+    opacity: 1;
+    transform: translate(20%, -50%) scale(1);
+    filter: blur(0px);
+    pointer-events: auto;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy magical feel */
+}
+
+.face-title.inactive {
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(20%, -50%) scale(0.8);
+    filter: blur(10px);
+    transition: all 0.3s ease-in;
+}
+
+.face-description {
+    user-select: none;
+    position: absolute;
+    max-width: 20ch;
+    top: 50%;
+    font-size: 1.2rem;
+    right: 5%;
+    transform: translate(0, -50%);
+    color: #333;
+}
+
+.face-description.active {
+    opacity: 1;
+    transform: translate(-10%, -50%);
+    filter: blur(0px);
+    pointer-events: auto;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s;
+    /* Staggered delay */
+}
+
+.face-description.inactive {
+    pointer-events: none;
+    transform: translate(20%, -50%);
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 0.3s ease-in;
+}
+
+.action-button.active {
+    bottom: 3.8em;
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s ease;
+}
+
+.action-button.inactive {
+    bottom: -80px;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.1s ease;
+}
+
+@media (max-width: 1500px) {
+
+    .face-title,
+    .face-description {
+        display: none;
+    }
+}
