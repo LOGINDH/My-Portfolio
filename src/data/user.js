@@ -11,6 +11,7 @@ const INFO = {
 		github: "https://github.com/LOGINDH",
 		linkedin: "https://www.linkedin.com/in/logindh-venkatachalm-44a888376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
 		instagram: "https://www.instagram.com/_franky.x.chanky_?igsh=Mm00bGdtY203bXdi",
+		hackerrank: "https://www.hackerrank.com/profile/logindhlogindh2",
 	},
 
 	homepage: {
@@ -32,6 +33,22 @@ const INFO = {
 		}
 	},
 
+	skills: {
+		title: "My Skills",
+		description: "I have experience with a variety of technologies and tools. Here are some of my key skills.",
+		list: [
+			{ title: "C", percentage: 80 },
+			{ title: "C++", percentage: 80 },
+			{ title: "Java", percentage: 75 },
+			{ title: "Python", percentage: 60 },
+			{ title: "HTML", percentage: 95 },
+			{ title: "CSS", percentage: 90 },
+			{ title: "JavaScript", percentage: 85 },
+			{ title: "React", percentage: 90 },
+			{ title: "Video Editing", percentage: 70 },
+		]
+	},
+
 	articles: {
 		title: "I'm passionate about pushing the boundaries of what's possible and inspiring the next generation of innovators.",
 		description:
@@ -46,6 +63,7 @@ const INFO = {
 			logo: "project1_innovative.png",
 			linkText: "View Project",
 			link: "https://logindh.github.io/TODO-LIST/",
+			expertise: ["JavaScript", "Local Storage", "DOM Manipulation"],
 		},
 
 		{
@@ -55,6 +73,7 @@ const INFO = {
 			logo: "project2_innovative.png",
 			linkText: "View Project",
 			link: "https://logindh.github.io/GAME/",
+			expertise: ["Game Logic", "Event Handling", "CSS Animations"],
 		},
 
 	],

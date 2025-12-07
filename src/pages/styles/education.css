@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.education-page-container {
+    background-color: #fcfcfc;
+    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-size: 30px 30px;
+    /* Subtle dot pattern */
+    min-height: 100vh;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.education-main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 60px 80px;
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .education-main-content {
+        margin-left: 270px;
+    }
+}
+
+/* Header */
+.education-header {
+    margin-bottom: 60px;
+    padding-left: 20px;
+}
+
+.education-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin: 0;
+    letter-spacing: -2px;
+    background: -webkit-linear-gradient(45deg, #333, #666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Timeline Container */
+.education-timeline {
+    position: relative;
+    padding-left: 60px;
+    max-width: 900px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Icons on the left */
+.timeline-icon {
+    position: absolute;
+    left: -60px;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    /* Replaced default color */
+    border-radius: 50%;
+    /* border: 4px solid #fff; Removed plain border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    /* Rich shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    color: #333;
+    /* Dark icon for visibility */
+    font-size: 1.5rem;
+    overflow: hidden;
+    /* For inner colors */
+}
+
+/* Card Content - Rich Professional Look */
+.timeline-card {
+    background: #FFD54F;
+    /* Fallback */
+    background: linear-gradient(135deg, #fffbeb 0%, #ffe082 100%);
+    /* Lighter, premium gold/cream gradient */
+    border-radius: 12px;
+    padding: 30px 35px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Soft, expansive shadow */
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+/* Arrow pointing to card */
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 12px 12px 12px 0;
+    border-style: solid;
+    border-color: transparent #ffe082 transparent transparent;
+    /* Match card gradient edge */
+}
+
+.education-degree {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    letter-spacing: -0.5px;
+}
+
+.education-year {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: #222;
+    /* High contrast badge */
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.education-school {
+    font-size: 1.1rem;
+    color: #444;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}

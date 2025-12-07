@@ -3,16 +3,8 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
-import Logo from "../components/common/logo";
-import AllProjects from "../components/projects/allProjects";
-import Article from "../components/homepage/article";
-import Works from "../components/homepage/works";
-
 import INFO from "../data/user";
 import SEO from "../data/seo";
-import myArticles from "../data/articles";
 import Sidebar from "../components/common/sidebar";
 import HeroImage from "./hero_new.png";
 

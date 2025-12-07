@@ -44,10 +44,10 @@ const Sidebar = ({ active }) => {
                         )}
                     </Link>
                 </li>
-                <li className={active === "experience" ? "active" : ""}>
-                    <Link to="/experience">
-                        Experience
-                        {active === "experience" && (
+                <li className={active === "skills" ? "active" : ""}>
+                    <Link to="/skills">
+                        Skills
+                        {active === "skills" && (
                             <span className="nav-arrow">
                                 <i className="fa fa-arrow-right"></i>
                             </span>
@@ -64,16 +64,7 @@ const Sidebar = ({ active }) => {
                         )}
                     </Link>
                 </li>
-                <li className={active === "references" ? "active" : ""}>
-                    <Link to="/references">
-                        References
-                        {active === "references" && (
-                            <span className="nav-arrow">
-                                <i className="fa fa-arrow-right"></i>
-                            </span>
-                        )}
-                    </Link>
-                </li>
+
                 <li className={active === "contact" ? "active" : ""}>
                     <Link to="/contact">
                         Contact

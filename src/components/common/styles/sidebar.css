@@ -28,16 +28,20 @@
     flex: 1;
 }
 
+/* Sidebar Menu Item Styling */
 .sidebar-menu li {
     font-size: 14px;
-    color: #666;
+    color: #888;
     margin-bottom: 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     display: flex;
     align-items: center;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 8px;
 }
 
 .sidebar-menu li a {
@@ -49,15 +53,33 @@
     justify-content: space-between;
 }
 
-.sidebar-menu li:hover,
+/* Hover Effect: Slide & Darken */
+.sidebar-menu li:hover {
+    color: #000;
+    transform: translateX(8px);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Active State: Bold & Indicator (No Background) */
 .sidebar-menu li.active {
     color: #000;
     font-weight: 700;
+    transform: translateX(5px);
+}
+
+.sidebar-menu li.active .nav-arrow {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .nav-arrow {
     font-size: 12px;
     margin-left: 10px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: #FFD54F;
+    /* Brand accent */
 }
 
 .sidebar-footer {

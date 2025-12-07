@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faUser,
@@ -15,11 +15,10 @@ import {
 	faTwitter,
 	faDribbble,
 	faSkype,
+	faFigma,
 } from "@fortawesome/free-brands-svg-icons";
-import { faFigma } from "@fortawesome/free-brands-svg-icons";
 
 import Sidebar from "../components/common/sidebar";
-import Footer from "../components/common/footer";
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
@@ -32,6 +31,31 @@ const About = () => {
 
 	const currentSEO = SEO.find((item) => item.page === "about");
 
+	// Mouse Parallax Logic
+	const x = useMotionValue(0);
+	const y = useMotionValue(0);
+	const smoothX = useSpring(x, { stiffness: 100, damping: 30 });
+	const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
+
+	const handleMouseMove = (e) => {
+		const { clientX, clientY } = e;
+		const centerX = window.innerWidth / 2;
+		const centerY = window.innerHeight / 2;
+		x.set((clientX - centerX) / 30); // Sensitivity
+		y.set((clientY - centerY) / 30);
+	};
+
+	// Transform for icons (different depths)
+	const iconX1 = useTransform(smoothX, (val) => val * -1.5);
+	const iconY1 = useTransform(smoothY, (val) => val * -1.5);
+
+	const iconX2 = useTransform(smoothX, (val) => val * 2);
+	const iconY2 = useTransform(smoothY, (val) => val * 2);
+
+	const iconX3 = useTransform(smoothX, (val) => val * 1);
+	const iconY3 = useTransform(smoothY, (val) => val * -1);
+
+
 	return (
 		<React.Fragment>
 			<Helmet>
@@ -43,7 +67,10 @@ const About = () => {
 				/>
 			</Helmet>
 
-			<div className="page-content about-page-container">
+			<div
+				className="page-content about-page-container"
+				onMouseMove={handleMouseMove}
+			>
 				<div className="content-wrapper">
 					<Sidebar active="about" />
 
@@ -53,12 +80,14 @@ const About = () => {
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.8 }}
 					>
+						{/* Particles removed for cleaner professional look */}
+
 						<div className="about-top-section">
 							<motion.h1
 								className="about-brand"
-								initial={{ x: -50, opacity: 0 }}
+								initial={{ x: -100, opacity: 0 }}
 								animate={{ x: 0, opacity: 1 }}
-								transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+								transition={{ delay: 0.2, type: "spring", stiffness: 50 }}
 							>
 								About
 							</motion.h1>
@@ -82,25 +111,28 @@ const About = () => {
 											/>
 										</div>
 
-										{/* Floating Icons */}
+										{/* Floating Icons with Parallax */}
 										<motion.div
 											className="floating-icon icon-ai"
-											animate={{ y: [0, -10, 0] }}
-											transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+											style={{ x: iconX1, y: iconY1 }}
+											animate={{ rotate: [0, 10, -10, 0] }}
+											transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
 										>
 											Ai
 										</motion.div>
 										<motion.div
 											className="floating-icon icon-ps"
-											animate={{ y: [0, -15, 0] }}
-											transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
+											style={{ x: iconX2, y: iconY2 }}
+											animate={{ rotate: [0, -5, 5, 0] }}
+											transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
 										>
 											Ps
 										</motion.div>
 										<motion.div
 											className="floating-icon icon-figma"
-											animate={{ y: [0, -12, 0] }}
-											transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 1 }}
+											style={{ x: iconX3, y: iconY3 }}
+											animate={{ rotate: [0, 15, -15, 0] }}
+											transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
 										>
 											<FontAwesomeIcon icon={faFigma} />
 										</motion.div>
@@ -109,18 +141,21 @@ const About = () => {
 
 								<motion.div
 									className="about-card-right"
-									initial={{ x: 50, opacity: 0 }}
+									initial={{ x: 100, opacity: 0 }}
 									animate={{ x: 0, opacity: 1 }}
-									transition={{ delay: 0.6, type: "spring" }}
+									transition={{ delay: 0.6, type: "spring", stiffness: 60 }}
 								>
-									<h2 className="profile-name">{INFO.about.details.name.toUpperCase()}</h2>
+									<motion.h2
+										className="profile-name"
+										whileHover={{ scale: 1.05, originX: 0 }}
+									>
+										{INFO.about.details.name.toUpperCase()}
+									</motion.h2>
 									<h3 className="profile-role">ATTRACTIVE DESIGNER AND DEVELOPER</h3>
 
 									<div className="profile-details">
 										<div className="detail-item">
-											<div className="detail-icon">
-												<FontAwesomeIcon icon={faUser} />
-											</div>
+											<div className="detail-icon"><FontAwesomeIcon icon={faUser} /></div>
 											<div className="detail-content">
 												<span className="detail-label">Name : </span>
 												<span className="detail-value">{INFO.about.details.name}</span>
@@ -128,9 +163,7 @@ const About = () => {
 										</div>
 
 										<div className="detail-item">
-											<div className="detail-icon">
-												<FontAwesomeIcon icon={faCalendar} />
-											</div>
+											<div className="detail-icon"><FontAwesomeIcon icon={faCalendar} /></div>
 											<div className="detail-content">
 												<span className="detail-label">Date of birth : </span>
 												<span className="detail-value">{INFO.about.details.dob}</span>
@@ -138,9 +171,7 @@ const About = () => {
 										</div>
 
 										<div className="detail-item">
-											<div className="detail-icon">
-												<FontAwesomeIcon icon={faMapMarkerAlt} />
-											</div>
+											<div className="detail-icon"><FontAwesomeIcon icon={faMapMarkerAlt} /></div>
 											<div className="detail-content">
 												<span className="detail-label">Address : </span>
 												<span className="detail-value">{INFO.about.details.address}</span>
@@ -148,9 +179,7 @@ const About = () => {
 										</div>
 
 										<div className="detail-item">
-											<div className="detail-icon">
-												<FontAwesomeIcon icon={faPhone} />
-											</div>
+											<div className="detail-icon"><FontAwesomeIcon icon={faPhone} /></div>
 											<div className="detail-content">
 												<span className="detail-label">Phone : </span>
 												<span className="detail-value">{INFO.about.details.phone}</span>
@@ -158,9 +187,7 @@ const About = () => {
 										</div>
 
 										<div className="detail-item">
-											<div className="detail-icon">
-												<FontAwesomeIcon icon={faEnvelope} />
-											</div>
+											<div className="detail-icon"><FontAwesomeIcon icon={faEnvelope} /></div>
 											<div className="detail-content">
 												<span className="detail-label">Email : </span>
 												<span className="detail-value">{INFO.about.details.email}</span>
@@ -181,7 +208,7 @@ const About = () => {
 
 						<motion.div
 							className="about-footer-socials"
-							initial={{ y: 20, opacity: 0 }}
+							initial={{ y: 50, opacity: 0 }}
 							animate={{ y: 0, opacity: 1 }}
 							transition={{ delay: 0.8 }}
 						>
@@ -192,21 +219,7 @@ const About = () => {
 							<div className="social-icon-circle"><FontAwesomeIcon icon={faSkype} /></div>
 						</motion.div>
 
-						<motion.div
-							className="about-page-footer-actions"
-							initial={{ y: 20, opacity: 0 }}
-							animate={{ y: 0, opacity: 1 }}
-							transition={{ delay: 1.0 }}
-						>
-							<div className="action-item">
-								<div className="action-icon">🖨️</div>
-								<span>Print</span>
-							</div>
-							<div className="action-item">
-								<div className="action-icon">📄</div>
-								<span>Download</span>
-							</div>
-						</motion.div>
+						{/* Footer actions removed for professional simplicity */}
 
 						<div className="about-copyright">
 							© 2025 Logindh. All rights reserved.

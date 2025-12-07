@@ -9,6 +9,8 @@ import Projects from "./pages/projects";
 import Articles from "./pages/articles";
 import ReadArticle from "./pages/readArticle";
 import Contact from "./pages/contact";
+import Skills from "./pages/skills";
+import Education from "./pages/education";
 import Notfound from "./pages/404";
 import PageTransition from "./components/common/pageTransition";
 
@@ -41,6 +43,16 @@ function App() {
 					<Route path="/projects" element={
 						<PageTransition>
 							<Projects />
+						</PageTransition>
+					} />
+					<Route path="/skills" element={
+						<PageTransition>
+							<Skills />
+						</PageTransition>
+					} />
+					<Route path="/education" element={
+						<PageTransition>
+							<Education />
 						</PageTransition>
 					} />
 					<Route path="/articles" element={

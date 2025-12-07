@@ -1,80 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;800&display=swap');
 
 .about-page-container {
     background-color: #FFD700;
-    /* Yellow background */
+    /* Yellow background restored */
     min-height: 100vh;
-    color: #000;
+    color: #1a1a1a;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    position: relative;
 }
 
 .about-main-content {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 10;
 }
 
 @media (min-width: 1024px) {
     .about-main-content {
-        margin-left: 270px;
-        /* Adjust based on sidebar width */
+        margin-left: 300px;
+        /* Match Homepage spacing */
     }
 }
 
 /* Top Section */
 .about-top-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 60px;
+    padding: 60px 80px 20px 80px;
 }
 
 .about-brand {
-    font-family: 'Pacifico', cursive;
-    /* Handwritten style for "About" */
-    font-size: 3.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
     margin: 0;
     color: #000;
+    letter-spacing: -2px;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+}
+
+/* Add a subtle underline accent */
+.about-brand::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 60px;
+    height: 8px;
+    background-color: #FFD700;
+    z-index: -1;
 }
 
 .about-top-spacer {
-    /* Placeholder for top navbar space */
-    width: 400px;
-    height: 50px;
+    height: 20px;
 }
 
 /* Card Container */
 .about-card-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 80px;
+    margin-top: 20px;
 }
 
 .about-card {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1100px;
-    gap: 50px;
+    max-width: 1200px;
+    gap: 80px;
 }
 
 /* Left Side - Image */
 .about-card-left {
-    flex: 1;
+    flex: 0.8;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
 }
 
 .brush-stroke-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,262 +98,248 @@
 .brush-stroke-mask {
     width: 100%;
     height: 100%;
-    /* Complex clip-path to simulate a brush stroke / grunge shape */
-    clip-path: polygon(10% 15%, 15% 10%, 25% 12%, 35% 8%, 45% 12%, 55% 5%, 65% 10%, 75% 8%, 85% 15%, 90% 10%,
-            95% 20%, 92% 30%, 98% 40%, 90% 50%, 95% 60%, 92% 70%, 98% 80%, 90% 90%,
-            80% 95%, 70% 92%, 60% 98%, 50% 90%, 40% 95%, 30% 92%, 20% 98%, 10% 90%,
-            5% 80%, 8% 70%, 2% 60%, 8% 50%, 2% 40%, 8% 30%, 2% 20%);
-    background-color: #fff;
-    /* White background for the "stroke" */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
 }
 
 .profile-image-brush {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Slightly smaller clip to create a "border" effect if needed, or just fill */
-    clip-path: inherit;
+    transition: transform 0.5s ease;
 }
 
-/* Floating Icons */
+.brush-stroke-container:hover .profile-image-brush {
+    transform: scale(1.03);
+}
+
+/* Floating Icons - clean style */
 .floating-icon {
     position: absolute;
-    background: #1a1a1a;
-    color: #fff;
-    border-radius: 8px;
+    background: #ffffff;
+    color: #333;
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     z-index: 20;
+    font-family: 'Poppins', sans-serif;
 }
 
 .icon-ai {
-    top: 20px;
-    left: 40px;
-    width: 40px;
-    height: 40px;
-    background: #330000;
-    /* Adobe Ai color approx */
+    top: -20px;
+    left: -20px;
+    width: 50px;
+    height: 50px;
     color: #ff9a00;
-    border: 1px solid #ff9a00;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .icon-ps {
-    top: 60px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    background: #001e36;
-    /* Adobe Ps color approx */
+    top: 40px;
+    right: -30px;
+    width: 55px;
+    height: 55px;
     color: #31a8ff;
-    border: 1px solid #31a8ff;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .icon-figma {
-    bottom: 30px;
-    left: 80px;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    color: #333;
-    font-size: 1.8rem;
+    bottom: -20px;
+    left: 40px;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
 }
 
 /* Right Side - Content */
 .about-card-right {
     flex: 1.2;
     text-align: left;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .profile-name {
-    font-size: 3.5rem;
-    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
     margin: 0;
-    line-height: 1.1;
+    line-height: 1;
     color: #000;
+    letter-spacing: -1px;
+    background: none;
+    background-clip: unset;
+    -webkit-text-fill-color: initial;
 }
 
 .profile-role {
-    font-size: 0.9rem;
+    font-family: 'Playfair Display', serif;
+    /* Premium Serif */
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    letter-spacing: 3px;
+    /* Reduced slightly for serif */
+    margin-top: 15px;
+    margin-bottom: 50px;
     text-transform: uppercase;
-    color: #000;
+    color: #111;
+    /* Darker for contrast */
+    padding-left: 15px;
+    border-left: 4px solid #000;
+    /* Black border to be visible on yellow */
 }
 
+/* Details Grid */
 .profile-details {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 .detail-item {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .detail-icon {
-    width: 32px;
-    height: 32px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    color: #000;
-    flex-shrink: 0;
+    display: none;
+    /* Cleaner look without icons */
 }
 
 .detail-content {
-    font-size: 0.95rem;
-    color: #000;
+    display: flex;
+    flex-direction: column;
 }
 
 .detail-label {
+    font-size: 0.75rem;
     font-weight: 700;
-    margin-right: 5px;
+    text-transform: uppercase;
+    color: #444;
+    /* Darker gray/black for visibility on yellow */
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
 }
 
 .detail-value {
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
 }
 
 /* Objective Section */
 .objective-section {
-    margin-top: 40px;
+    margin-top: 20px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .objective-checkbox {
-    width: 20px;
-    height: 20px;
-    background: white;
-    display: inline-block;
-    margin-right: 10px;
-    vertical-align: middle;
+    display: none;
 }
 
 .objective-title {
-    display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 800;
-    margin: 0;
-    vertical-align: middle;
+    margin: 0 0 15px 0;
     color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .objective-text {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #333;
-    max-width: 90%;
+    font-size: 100%;
+    line-height: 1.8;
+    color: #222;
+    /* Darker for readability */
+    max-width: 100%;
+    font-weight: 500;
 }
 
-/* Footer Socials */
+/* Footer Socials - Clean */
 .about-footer-socials {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 60px;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 40px;
     margin-bottom: 40px;
 }
 
 .social-icon-circle {
-    width: 45px;
-    height: 45px;
-    background: #000;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: #000;
+    border-radius: 0;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
 }
 
 .social-icon-circle:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px);
+    opacity: 1;
+    color: #FFD700;
 }
 
 /* Footer Actions */
 .about-page-footer-actions {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 100px;
-    margin-bottom: 40px;
-}
-
-.action-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: 700;
-    cursor: pointer;
-    gap: 5px;
-    color: #000;
-}
-
-.action-icon {
-    font-size: 24px;
+    display: none;
+    /* Remove print/download for cleaner look unless critical */
 }
 
 .about-copyright {
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 20px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #ccc;
+    margin-top: auto;
+    padding-top: 20px;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .about-card {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+    .about-top-section {
+        padding: 40px 20px;
     }
 
-    .about-card-right {
-        text-align: center;
-        padding-left: 0;
-    }
-
-    .profile-details {
-        align-items: center;
-        /* Center details on mobile */
-    }
-
-    .detail-item {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .objective-section {
-        text-align: left;
-        /* Keep objective text readable */
+    .about-card-container {
         padding: 0 20px;
     }
 
-    .about-top-section {
-        padding: 20px;
+    .about-card {
+        flex-direction: column;
+        gap: 40px;
     }
 
-    .about-brand {
-        font-size: 2.5rem;
+    .about-card-left {
+        width: 100%;
+    }
+
+    .brush-stroke-container {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+    }
+
+    .about-card-right {
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    .profile-name {
+        font-size: 3rem;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }

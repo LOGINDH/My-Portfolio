@@ -33,6 +33,20 @@ const SEO = [
 			"If you're interested in collaborating on a project, feel free to reach out to me. I'm always open to new ideas and opportunities.",
 		keywords: ["LOGINDH", "LOGINDH V", "LOGINDH VENKATACHALAM"],
 	},
+
+	{
+		page: "skills",
+		description:
+			"My technical skills and expertise in web development and programming.",
+		keywords: ["LOGINDH", "LOGINDH V", "LOGINDH VENKATACHALAM", "Skills", "React", "JavaScript"],
+	},
+
+	{
+		page: "education",
+		description:
+			"My educational background and qualifications.",
+		keywords: ["LOGINDH", "LOGINDH V", "Education", "B.Tech", "School"],
+	},
 ];
 
 export default SEO;

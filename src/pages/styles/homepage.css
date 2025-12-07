@@ -30,6 +30,11 @@
 	height: 100%;
 }
 
+.homepage-center {
+	margin-left: 300px;
+	/* Sidebar (250px) + Gap (50px) */
+}
+
 /* Hero Section */
 .hero-section {
 	display: flex;
