@@ -72,7 +72,7 @@ const INFO = {
 				"An interactive number-guessing game built with JavaScript to test your luck and logic",
 			logo: "project2_innovative.png",
 			linkText: "View Project",
-			link: "https://logindh.github.io/GAME/",
+			link: "file:///C:/Users/logindh/OneDrive/Desktop/new/game.html",
 			expertise: ["Game Logic", "Event Handling", "CSS Animations"],
 		},
 
